@@ -7,7 +7,7 @@
 <title>Juliana &amp; Patrick — 18.12.2026</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&amp;family=Cinzel:wght@400;500&amp;family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&amp;family=Great+Vibes&amp;family=Tangerine:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&amp;family=Cinzel:wght@400;500&amp;family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&amp;family=Great+Vibes&amp;family=Tangerine:wght@400;700&amp;family=Pinyon+Script&amp;display=swap" rel="stylesheet"/>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -87,6 +87,20 @@ body {
   100% { opacity: 0; transform: translateY(60px) rotate(120deg); }
 }
 
+/* flores/pétalas caindo na capa (splash) */
+.splash-petal {
+  position: absolute; top: -6%; z-index: 2; pointer-events: none; opacity: 0;
+  will-change: transform, opacity;
+  animation-name: petalFall; animation-timing-function: linear; animation-iteration-count: infinite;
+}
+.splash-petal svg { display: block; width: 100%; height: 100%; }
+@keyframes petalFall {
+  0%   { opacity: 0; transform: translate3d(0, -8vh, 0) rotate(0deg); }
+  8%   { opacity: .85; }
+  92%  { opacity: .85; }
+  100% { opacity: 0; transform: translate3d(var(--drift, 30px), 112vh, 0) rotate(var(--spin, 300deg)); }
+}
+
 .splash-content {
   position: relative; z-index: 5; text-align: center;
   padding: 30px; max-width: 90vw;
@@ -105,14 +119,14 @@ body {
 .splash-crest { width: clamp(120px, 30vw, 188px); margin: 0 auto 14px; opacity: 0; animation: contentIn 1.6s ease forwards 0.3s; }
 .splash-crest img { width: 100%; height: auto; display: block; }
 .splash-names {
-  font-family: 'Cormorant Garamond', serif; font-weight: 500;
-  font-size: clamp(42px, 13vw, 86px); line-height: .98;
+  font-family: 'Pinyon Script', 'Great Vibes', cursive; font-weight: 400;
+  font-size: clamp(52px, 16vw, 104px); line-height: 1.0;
   color: var(--text); letter-spacing: 1px;
 }
 .splash-names .surname { display: block; font-size: 0.34em; letter-spacing: 5px; text-transform: uppercase; color: var(--text-mid); font-weight: 500; margin-top: 4px; }
 .splash-names .amp {
-  display: block; font-family: 'Great Vibes', cursive; font-weight: 400;
-  font-size: 0.34em; color: var(--green); line-height: 1; margin: 16px 0 10px;
+  display: block; font-family: 'Pinyon Script', 'Great Vibes', cursive; font-weight: 400;
+  font-size: 0.5em; color: var(--green); line-height: 1; margin: 6px 0 2px;
 }
 .splash-date {
   font-family: 'Cinzel', serif; font-size: clamp(11px, 2.6vw, 14px);
@@ -188,12 +202,12 @@ body {
 }
 .hero-line-left, .hero-line-right { flex: 1; height: 1px; background: var(--gold-light); }
 .hero-names {
-  font-family: 'Cormorant Garamond', serif; font-weight: 500;
-  font-size: clamp(40px, 11vw, 70px);
-  color: var(--text); line-height: 1.0; text-align: center; margin: 4px 0 12px; letter-spacing: 1px;
+  font-family: 'Pinyon Script', 'Great Vibes', cursive; font-weight: 400;
+  font-size: clamp(50px, 14vw, 88px);
+  color: var(--text); line-height: 1.05; text-align: center; margin: 4px 0 12px; letter-spacing: 1px;
 }
 .hero-names .surname { display: block; font-size: 0.46em; letter-spacing: 4px; text-transform: uppercase; color: var(--text-mid); font-weight: 500; margin-top: 2px; }
-.hero-names .amp { display:block; font-family: 'Great Vibes', cursive; font-weight: 400; font-size: 0.42em; color: var(--green); line-height: 1; margin: 14px 0 8px; }
+.hero-names .amp { display:block; font-family: 'Pinyon Script', 'Great Vibes', cursive; font-weight: 400; font-size: 0.56em; color: var(--green); line-height: 1; margin: 6px 0 2px; }
 .hero-tagline {
   font-family: 'Cormorant Garamond', serif; font-size: clamp(15px, 3.5vw, 18px);
   font-weight: 400; font-style: italic;
@@ -411,7 +425,7 @@ section { padding: 78px 24px; max-width: 600px; margin: 0 auto; text-align: cent
 
 /* FOOTER */
 footer { text-align: center; padding: 44px 24px; border-top: 1.5px solid var(--gold-light); }
-footer .footer-names { font-family: 'Great Vibes', cursive; font-size: 34px; color: var(--gold-deep); display: block; margin-bottom: 6px; }
+footer .footer-names { font-family: 'Pinyon Script', 'Great Vibes', cursive; font-size: 46px; color: var(--gold-deep); display: block; margin-bottom: 6px; line-height: 1.1; }
 footer .footer-date { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 4px; color: var(--text-mid); }
 
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -440,6 +454,9 @@ footer .footer-date { font-family: 'Cinzel', serif; font-size: 11px; letter-spac
 .music-bar:nth-child(5) { height: 6px; animation-delay: 0.25s; }
 @keyframes musicBar { 0%, 100% { transform: scaleY(0.4); } 50% { transform: scaleY(1.2); } }
 .music-bars.paused .music-bar { animation-play-state: paused; }
+.music-widget[hidden] { display: none; }
+.music-icon { display: flex; align-items: center; justify-content: center; }
+.music-icon svg { display: block; }
 
 @media(max-width: 500px) {
   .info-grid { grid-template-columns: 1fr; }
@@ -612,6 +629,11 @@ footer .footer-date { font-family: 'Cinzel', serif; font-size: 11px; letter-spac
 </footer>
 </div>
 <!-- ÁUDIO -->
+<audio id="bg-music" src="musica.mp3" loop preload="auto"></audio>
+<div class="music-widget" id="music-widget" hidden>
+<button class="music-toggle" id="music-toggle" type="button" aria-label="Pausar música" aria-pressed="true"><span class="music-icon" id="music-icon" aria-hidden="true"></span></button>
+<span class="music-bars" id="music-bars" aria-hidden="true"><span class="music-bar"></span><span class="music-bar"></span><span class="music-bar"></span><span class="music-bar"></span><span class="music-bar"></span></span>
+</div>
 
 
 <script>
@@ -625,8 +647,70 @@ function openInvite(){
  if(inviteOpened)return;inviteOpened=true;
  document.getElementById('main').style.display='block';
  const splash=document.getElementById('splash');splash.classList.add('opening');
+ startMusic();
  setTimeout(()=>{splash.style.display='none';initReveals();},900);
 }
+
+/* ── Música de fundo + botão play/pause ── */
+var audioEl=document.getElementById('bg-music');
+var musicWidget=document.getElementById('music-widget');
+var musicToggle=document.getElementById('music-toggle');
+var musicIcon=document.getElementById('music-icon');
+var musicBars=document.getElementById('music-bars');
+var ICON_PAUSE='<svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><rect x="3" y="2.5" width="2.6" height="9" rx="1"></rect><rect x="8.4" y="2.5" width="2.6" height="9" rx="1"></rect></svg>';
+var ICON_PLAY='<svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M4 2.4 L11.2 7 L4 11.6 Z"></path></svg>';
+function setMusicUI(playing){
+ if(musicIcon) musicIcon.innerHTML=playing?ICON_PAUSE:ICON_PLAY;
+ if(musicBars) musicBars.classList.toggle('paused',!playing);
+ if(musicToggle){
+  musicToggle.setAttribute('aria-pressed',playing?'true':'false');
+  musicToggle.setAttribute('aria-label',playing?'Pausar música':'Tocar música');
+ }
+}
+function startMusic(){
+ if(!audioEl) return;
+ if(musicWidget) musicWidget.hidden=false;
+ var p=audioEl.play();
+ if(p&&p.catch) p.catch(function(){setMusicUI(false);});
+}
+if(audioEl){
+ audioEl.addEventListener('play',function(){setMusicUI(true);});
+ audioEl.addEventListener('pause',function(){setMusicUI(false);});
+}
+if(musicToggle){
+ musicToggle.addEventListener('click',function(){
+  if(!audioEl) return;
+  if(audioEl.paused){ var p=audioEl.play(); if(p&&p.catch) p.catch(function(){}); }
+  else { audioEl.pause(); }
+ });
+}
+setMusicUI(false);
+
+/* ── Pétalas caindo na capa ── */
+function initPetals(){
+ var splash=document.getElementById('splash');
+ if(!splash) return;
+ if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+ var PETAL='<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C9 6 6 8 6 13c0 4 3 7 6 7s6-3 6-7c0-5-3-7-6-11z" fill="COLOR" opacity="0.9"/><path d="M12 5c-1.6 2.6-3.4 4.2-3.4 7.8 0 2.6 1.6 4.6 3.4 4.6" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="0.6"/></svg>';
+ var colors=['#e6c79c','#e7d3bd','#dcbf98','#f0dcc6','#e3c7a6','#ecd9c4'];
+ var N=16;
+ for(var i=0;i<N;i++){
+  var el=document.createElement('span');
+  el.className='splash-petal';
+  var size=(9+Math.random()*12);
+  el.style.width=size+'px'; el.style.height=size+'px';
+  el.style.left=(Math.random()*100)+'%';
+  el.style.setProperty('--drift',(Math.random()*120-60).toFixed(0)+'px');
+  el.style.setProperty('--spin',(200+Math.random()*260).toFixed(0)+'deg');
+  var dur=(9+Math.random()*8).toFixed(1);
+  var delay=(-Math.random()*12).toFixed(1);
+  el.style.animationDuration=dur+'s';
+  el.style.animationDelay=delay+'s';
+  el.innerHTML=PETAL.replace('COLOR',colors[i%colors.length]);
+  splash.appendChild(el);
+ }
+}
+initPetals();
 function initReveals(){
  const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:0.08});
  document.querySelectorAll('.reveal,.info-card,.countdown-wrap').forEach(el=>observer.observe(el));
